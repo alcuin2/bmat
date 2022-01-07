@@ -1,13 +1,17 @@
-BMAT Back Office Senior Web Developer Test: Backend Focus
-=========================================================
+## Notes on the solution
+
+- File ingestion is done automatically. see `app/repertoire/apps.py`
+- Database migration is also done on every automatically on every startup.
+
+# BMAT Back Office Senior Web Developer Test: Backend Focus
 
 ## Contents
 
-* Some Context
-* Running the Stack
-* Part 1 - Creating an API
-* Part 2 - File Ingestion
-* Part 3 - Questions
+- Some Context
+- Running the Stack
+- Part 1 - Creating an API
+- Part 2 - File Ingestion
+- Part 3 - Questions
 
 ## Some context
 
@@ -33,10 +37,11 @@ You'll be creating an API using Django Rest Framework as defined in the `openapi
 Pay close attention to the endpoint definitions and payload, as you will be evaluated on how closely you can implement the API according to the specification.
 
 For this part you'll need to implement:
-* Models
-* Serializers
-* URLs
-* Views
+
+- Models
+- Serializers
+- URLs
+- Views
 
 Bear in mind that **some type of testing is expected.**
 
@@ -46,25 +51,25 @@ In the `/files` folder you'll find three CSV files. These files describe differe
 
 Your aim in this part is to read the files into the system and parse their content. Each file contains the following columns:
 
-* `title` - The Title of the Musical Work
-* `contributors` - Work contributors such as composers, lyricists, etc. we skip the role for simplicity. There can be multiple contributors, they are separated by |
-* `iswc` - International Standard Musical Work Code, it’s a musical work identifier.
-* `source` - The name of the metadata provider.
-* `proprietary_id` - Identifier used by the metadata provider.
+- `title` - The Title of the Musical Work
+- `contributors` - Work contributors such as composers, lyricists, etc. we skip the role for simplicity. There can be multiple contributors, they are separated by |
+- `iswc` - International Standard Musical Work Code, it’s a musical work identifier.
+- `source` - The name of the metadata provider.
+- `proprietary_id` - Identifier used by the metadata provider.
 
 Note that these colums map neatly to the Work schema in the `openapi.yml` file ;)
 
 Feel free to do the parsing with any library of your liking, but do:
 
-* Remember to update the `requirements.txt` file
-* Provide a django management command to trigger the ingestion.
+- Remember to update the `requirements.txt` file
+- Provide a django management command to trigger the ingestion.
 
 If you manage to ingest the three files provided, you'll be able to use the API you created in part 1 to retreive the list of files and the metadata contained in each. Neat!
 
 ## Part 3 - Questions
 
-* As mentioned in the context section, the final aim of metadata ingestion is to create a SingleView. What could be doone if two files provide conflicting information on the same work?
+- As mentioned in the context section, the final aim of metadata ingestion is to create a SingleView. What could be doone if two files provide conflicting information on the same work?
 
-* Could you use the endpoints described in this assignment or would have to create some new endpoints to provide the works of the SingleView?
+- Could you use the endpoints described in this assignment or would have to create some new endpoints to provide the works of the SingleView?
 
-* Imagine that the Single View has 20 million musical works, do you think your solution would have a similar response time? What technologies would you use to keep response times reasonable?
+- Imagine that the Single View has 20 million musical works, do you think your solution would have a similar response time? What technologies would you use to keep response times reasonable?
