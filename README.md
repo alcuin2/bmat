@@ -1,7 +1,9 @@
 ## Notes on the solution
 
+- Run app with `docker-compose up --build`
 - File ingestion is done automatically. see `app/repertoire/apps.py`
 - Database migration is also done on every automatically on every startup.
+- To run `tests`. Keep the app running with `docker-compose up`, open a new terminal and run `docker-compose exec api python manage.py test`
 
 # BMAT Back Office Senior Web Developer Test: Backend Focus
 
