@@ -3,7 +3,21 @@
 - Run app with `docker-compose up --build`
 - File ingestion is done automatically. see `app/repertoire/apps.py`
 - Database migration is also done on every automatically on every startup.
-- To run `tests`. Keep the app running with `docker-compose up`, open a new terminal and run `docker-compose exec api python manage.py test`
+- To run `tests`. Keep the app running with `docker-compose up --build`, open a new terminal and run `docker-compose exec api python manage.py test`
+
+## Answers to questions in Part 3
+
+QN: As mentioned in the context section, the final aim of metadata ingestion is to create a SingleView. What could be doone if two files provide conflicting information on the same work?
+
+- Ans: I don't think we have to do anything, since data is coming from different sources.
+
+QN: Could you use the endpoints described in this assignment or would have to create some new endpoints to provide the works of the SingleView?
+
+- Ans: Since data is coming from different source, we may have to implement a new endpoint to aggregate all data for a particular `title`.
+
+QN: Imagine that the Single View has 20 million musical works, do you think your solution would have a similar response time? What technologies would you use to keep response times reasonable?
+
+- Ans: We can add `pagination` capability to the `list` endpoints, so we don't have to fetch all data at once, also, and very importantly, introduce database caching using technologies like `redis`.
 
 # BMAT Back Office Senior Web Developer Test: Backend Focus
 
